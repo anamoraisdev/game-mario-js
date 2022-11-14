@@ -34,3 +34,28 @@
     bottom: 0;
 }
 
+.jump{
+    animation: jump-animation 500ms ease-out;
+}
+@keyframes pipe-animation{
+    from{
+        right: -20px;
+    }
+    to {
+        right: 200%;
+    }
+}
+@keyframes jump-animation{
+    0% {
+        bottom: 0;
+    }
+    40% {
+        bottom: 35vh;
+    }
+    60% {
+        bottom: 35vh;
+    }
+    100%{
+        bottom: 0;
+    }
+}
