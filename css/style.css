@@ -5,20 +5,38 @@
 }
 
 .container{
-    width: 80%;
-    height: 50vw;
-    border: 1px solid black;
+    width: 800px;
+    height: 400px;
+    border-bottom: 15px solid rgb(187, 134, 65);
     margin: 0 auto;
     overflow: hidden;
     position: relative;
+    background-color: rgb(168, 196, 248);
+
 }
+.nuvem{
+    position: absolute;
+    width: 50%;
+    animation: nuvem-animation 40s infinite linear; 
+}
+@keyframes nuvem-animation{
+    from{
+        right: -200px;
+    }
+    to {
+        right: 100%;
+    }
+}
+
+
 .obj-obstaculo{
     position: absolute;
     bottom: 0;
     animation: pipe-animation 2s infinite linear;
-}
+    width: 8%;
 
-.obj-obstaculo-cano-pequeno {
+}
+/*.obj-obstaculo-cano-pequeno {
     width: 10%;
     height: 100px;
 }
@@ -26,7 +44,7 @@
 .obj-obstaculo-cano-grande {
     width: 20%;
     height: 200px;
-}
+}*/
 
 .objmario{
     width: 15%;
@@ -39,10 +57,10 @@
 }
 @keyframes pipe-animation{
     from{
-        right: -20px;
+        right: -10px;
     }
     to {
-        right: 200%;
+        right: 100%;
     }
 }
 @keyframes jump-animation{
