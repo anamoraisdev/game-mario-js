@@ -14,6 +14,16 @@
     background-color: rgb(168, 196, 248);
 
 }
+.score{
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    width: 100px;
+    flex-direction: column;
+}
+.pontos{
+    
+}
 .nuvem{
     position: absolute;
     width: 50%;
