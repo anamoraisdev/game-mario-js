@@ -28,8 +28,11 @@ const gameOver = setInterval(() => {
     mario.style.width = "8%";
     mario.style.marginLeft = "50px"
     clearInterval(gameOver);
-  } 
-},10)
+  } if (pipePosition <= 90 && pipePosition > 0 && marioPosition > 80){
+    pontos = pontos + 1;
+    console.log("Seus pontos são: " + pontos);
+    }
+}) 
 document.addEventListener('keydown', jump);
 
   //if (pipePosition < 90) {
