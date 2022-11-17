@@ -1,6 +1,7 @@
 const mario = document.getElementById("mario");
 const pipe = document.getElementById("pipe"); 
 const score = document.getElementById("score"); 
+let pontos = document.getElementById("pontos")
 let pulando = false
 
 const jump = () => {
@@ -16,9 +17,7 @@ const jump = () => {
 
 const gameOver = setInterval(() => {
   const pipePosition = pipe.offsetLeft;
-  const marioPosition = +window.getComputedStyle(mario).bottom.replace("px", '');
-  var pontos = 0;
-    
+  const marioPosition = +window.getComputedStyle(mario).bottom.replace("px", ''); 
   if (pipePosition <= 90 && pipePosition > 0 && marioPosition < 80) {
     pipe.style.animation = "none";
     pipe.style.left = "90px";
@@ -29,7 +28,7 @@ const gameOver = setInterval(() => {
     mario.style.marginLeft = "50px"
     clearInterval(gameOver);
   } if (pipePosition <= 90 && pipePosition > 0 && marioPosition > 80){
-    pontos = pontos + 1;
+    parseInt(pontos++);
     console.log("Seus pontos são: " + pontos);
     }
 }) 

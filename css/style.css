@@ -17,7 +17,6 @@
 }
 .score{
     border: 1px solid black;
-    position: relative;
     display: flex;
     text-align: center;
     width: 100px;
