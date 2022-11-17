@@ -5,37 +5,67 @@ let pulando = false
 
 const jump = () => {
     mario.classList.add("jump");
-    pulando = true
-
+    let pulando = true;
     setTimeout(() => {
       mario.classList.remove("jump");
       pulando = false
-
     }, 500);
-}
+  }
+  const gameOver = setInterval(() => {
+    const pipePosition = pipe.offsetLeft;
+    const marioPosition = +window.getComputedStyle(mario).bottom.replace("px", ''); 
+  
+    let pontos = document.getElementById("pontos")
+    pontos = parseInt(pontos)
+  
+    if (pipePosition <= 90 && pipePosition > 0 && marioPosition < 80) {
+      pipe.style.animation = "none";
+      pipe.style.left = "90px";
+  
+      mario.style.bottom = "80px";
+      mario.src = "./imagens/game-over.png";
+      mario.style.width = "8%";
+      mario.style.marginLeft = "50px"
+      clearInterval(gameOver);
+    } if (pipePosition <= 90 && pipePosition > 0 && marioPosition > 80){
+      pontos ++;
+      console.log(pontos);
+      }
+  }) 
+  document.addEventListener('keydown', jump);
 
-const gameOver = setInterval(() => {
-  const pipePosition = pipe.offsetLeft;
+/*const checkPosition = () => {
+  const pipePosition = pipe.offsetLeft
   const marioPosition = +window.getComputedStyle(mario).bottom.replace("px", ''); 
-
-  let pontos = document.getElementById("pontos")
-  pontos = parseInt(pontos)
-
-  if (pipePosition <= 90 && pipePosition > 0 && marioPosition < 80) {
+  let pipeCheck = false
+  let pontos = 0;
+  
+  if (pipePosition <= 90 && pipePosition > 0 && marioPosition > 80){
+    
+    pipeCheck = true
+    
+  } else if (pipePosition <= 90 && pipePosition > 0 && marioPosition < 80) {
+    pipeCheck = false
     pipe.style.animation = "none";
     pipe.style.left = "90px";
-
     mario.style.bottom = "80px";
     mario.src = "./imagens/game-over.png";
     mario.style.width = "8%";
     mario.style.marginLeft = "50px"
-    clearInterval(gameOver);
-  } if (pipePosition <= 90 && pipePosition > 0 && marioPosition > 80){
-    pontos ++;
-    console.log(pontos);
-    }
-}) 
-document.addEventListener('keydown', jump);
+  }
+
+  switch(pipeCheck) {
+    case true:
+      pontos++
+      console.log (pontos)
+    break;
+    case false:
+      console.log(pontos)
+    break;
+  }
+}
+*/
+//
 
   //if (pipePosition < 90) {
   //  pontos = pontos + 1;
